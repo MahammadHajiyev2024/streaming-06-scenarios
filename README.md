@@ -48,6 +48,25 @@ You'll work with just these areas:
 - **pyproject.toml** - update authorship & links
 - **zensical.toml** - update authorship & links
 
+
+## Technical Modification 
+
+Technical Modification: Live Bar Chart Visualization
+
+For my technical modification, I changed the real-time visualization format used by the streaming consumer.
+
+
+
+What was changed: I modified update_live_chart in src/streaming/visualizations/live_visualizations_mo.py to plot incoming messages using a bar chart (axis.bar()) instead of the original line chart (axis.plot()). I also wired this updated module into my custom consumer file, src/streaming/kafka_consumer_mo.py.
+
+Why: A bar chart provides a clearer visual distinction for discrete streaming entries, allowing an operator to easily compare individual transaction totals side-by-side as they land.
+
+Observation: When running the pipeline, the active animation dynamically populates separate vertical bars for each Kafka offset index, and the final state is successfully saved to the output folder as sales_chart_mo.png.
+
+
+
+
+
 ## Instructions
 
 Follow the
